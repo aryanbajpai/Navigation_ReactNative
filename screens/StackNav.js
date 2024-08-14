@@ -1,41 +1,50 @@
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, StyleSheet, useWindowDimensions } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  useWindowDimensions,
+  ScrollView,
+} from "react-native";
 
 export default function StackNav({ route }) {
   const windowWidth = useWindowDimensions().width;
   const windowHeight = useWindowDimensions().height;
 
-  // const navigation = useNavigation() 
+  // const navigation = useNavigation()
   const { name } = route.params;
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.topic}>{name}</Text>
-
-      <View
-          style={[styles.section, { width: windowWidth > 500 ? "50%" : "92%" }]}
-        >
-        <Text style={styles.sectionText}>
-          - NAVIGATORS: Stack, Drawer & Tab.
-        </Text>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.topic}>{name}</Text>
 
         <View
-          style={{
-            marginHorizontal: 15,
-            marginBottom: 10,
-            borderRadius: 8,
-          }}
+          style={[styles.section, { width: windowWidth > 500 ? "50%" : "92%" }]}
         >
-          <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
-            <Text style={{ fontWeight: "bold" }}>Stack Navigator:</Text> way for
-            Transition between Screens, new screen is placed on TOP of a stack.
-          </Text>
           <Text style={styles.sectionText}>
-            npm install @react-navigation/native-stack
+            - NAVIGATORS: Stack, Drawer & Tab.
           </Text>
+
+          <View
+            style={{
+              marginHorizontal: 15,
+              marginBottom: 10,
+              borderRadius: 8,
+            }}
+          >
+            <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
+              <Text style={{ fontWeight: "bold" }}>Stack Navigator:</Text> way
+              for Transition between Screens, new screen is placed on TOP of a
+              stack.
+            </Text>
+            <Text style={styles.sectionText}>
+              npm install @react-navigation/native-stack
+            </Text>
+          </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -44,7 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: '#df643f',
+    backgroundColor: "#df643f",
   },
   topic: {
     fontSize: 35,
@@ -65,6 +74,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 4,
     fontSize: 18,
-    color: '#fff',
+    color: "#fff",
   },
 });

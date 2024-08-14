@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Button,
   useWindowDimensions,
+  ScrollView,
 } from "react-native";
 
 export default function DrawerNav({ route, navigation }) {
@@ -22,103 +23,105 @@ export default function DrawerNav({ route, navigation }) {
   }, [navigation, name]);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.topic}>{name}</Text>
-
-      <View
-        style={[styles.section, { width: windowWidth > 500 ? "50%" : "92%" }]}
-      >
-        <Text style={styles.sectionText}>
-          - NAVIGATORS: Stack, Drawer & Tab.
-        </Text>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.topic}>{name}</Text>
 
         <View
-          style={{
-            marginHorizontal: 15,
-            marginBottom: 10,
-            borderRadius: 8,
-          }}
+          style={[styles.section, { width: windowWidth > 500 ? "50%" : "92%" }]}
         >
-          <Text
-            style={[
-              styles.sectionText,
-              { fontWeight: "bold", fontStyle: "italic" },
-            ]}
-          >
-            Drawer Navigator:
-          </Text>
-          <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
-            renders hidden menu, sliding from either side of screen.
-          </Text>
-          <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
-            neat and organized navigation structure.
-          </Text>
-          <Text
-            style={[
-              styles.sectionText,
-              { fontWeight: "bold", fontStyle: "italic" },
-            ]}
-          >
-            npm install @react-navigation/drawer
-          </Text>
-          <Text
-            style={[
-              styles.sectionText,
-              { fontWeight: "bold", fontStyle: "italic" },
-            ]}
-          >
-            Library: npx expo install react-native-gesture-handler
-            react-native-reanimated
-          </Text>
-          <Text
-            style={[
-              styles.sectionText,
-              { fontWeight: "bold", fontStyle: "italic" },
-            ]}
-          >
-            Addition in <Text>babel.config.js</Text>:
-          </Text>
-          <Text
-            style={[
-              styles.sectionText,
-              { fontWeight: "bold", fontStyle: "italic" },
-            ]}
-          >
-            plugins: [ 'react-native-reanimated/plugin', ]
+          <Text style={styles.sectionText}>
+            - NAVIGATORS: Stack, Drawer & Tab.
           </Text>
 
-          <Text
-            style={[
-              styles.sectionText,
-              { fontWeight: "bold", fontStyle: "italic" },
-            ]}
+          <View
+            style={{
+              marginHorizontal: 15,
+              marginBottom: 10,
+              borderRadius: 8,
+            }}
           >
-            Add - "start": "expo start -c" to the "script" in package.json
-          </Text>
-          <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
-            We can toggle Drawere programatically.
-          </Text>
-        </View>
+            <Text
+              style={[
+                styles.sectionText,
+                { fontWeight: "bold", fontStyle: "italic" },
+              ]}
+            >
+              Drawer Navigator:
+            </Text>
+            <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
+              renders hidden menu, sliding from either side of screen.
+            </Text>
+            <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
+              neat and organized navigation structure.
+            </Text>
+            <Text
+              style={[
+                styles.sectionText,
+                { fontWeight: "bold", fontStyle: "italic" },
+              ]}
+            >
+              npm install @react-navigation/drawer
+            </Text>
+            <Text
+              style={[
+                styles.sectionText,
+                { fontWeight: "bold", fontStyle: "italic" },
+              ]}
+            >
+              Library: npx expo install react-native-gesture-handler
+              react-native-reanimated
+            </Text>
+            <Text
+              style={[
+                styles.sectionText,
+                { fontWeight: "bold", fontStyle: "italic" },
+              ]}
+            >
+              Addition in <Text>babel.config.js</Text>:
+            </Text>
+            <Text
+              style={[
+                styles.sectionText,
+                { fontWeight: "bold", fontStyle: "italic" },
+              ]}
+            >
+              plugins: [ 'react-native-reanimated/plugin', ]
+            </Text>
 
-        <View style={{ marginBottom: 10 }}>
+            <Text
+              style={[
+                styles.sectionText,
+                { fontWeight: "bold", fontStyle: "italic" },
+              ]}
+            >
+              Add - "start": "expo start -c" to the "script" in package.json
+            </Text>
+            <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
+              We can toggle Drawere programatically.
+            </Text>
+          </View>
+
+          <View style={{ marginBottom: 10 }}>
+            <Button
+              title="Update Title"
+              onPress={() =>
+                navigation.setParams({
+                  name: "DRAWER Navigator",
+                })
+              }
+            />
+          </View>
+
           <Button
-            title="Update Title"
+            title="Send Data to Home"
             onPress={() =>
-              navigation.setParams({
-                name: "DRAWER Navigator",
-              })
+              navigation.navigate("Home", { result: "Data Send from Drawer" })
             }
           />
         </View>
-
-        <Button
-          title="Send Data to Home"
-          onPress={() =>
-            navigation.navigate("Home", { result: "Data Send from Drawer" })
-          }
-        />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
