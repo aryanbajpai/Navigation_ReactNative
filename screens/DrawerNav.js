@@ -13,8 +13,8 @@ export default function DrawerNav({ route, navigation }) {
   const { name } = route.params;
 
   //Another way to Pass Dynamic data through NAVIGATION
-      //useEffect can also br used but its not Smooth enough
-  useLayoutEffect(() => {  
+  //useEffect can also br used but its not Smooth enough
+  useLayoutEffect(() => {
     //Used when Navigation options depends on components State or Props
     navigation.setOptions({
       title: name,
@@ -39,9 +39,64 @@ export default function DrawerNav({ route, navigation }) {
             borderRadius: 8,
           }}
         >
+          <Text
+            style={[
+              styles.sectionText,
+              { fontWeight: "bold", fontStyle: "italic" },
+            ]}
+          >
+            Drawer Navigator:
+          </Text>
           <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
-            <Text style={{ fontWeight: "bold" }}>Drawer Navigator:</Text>{" "}
-            renders on side of screen, opened and closed via gestures.
+            renders hidden menu, sliding from either side of screen.
+          </Text>
+          <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
+            neat and organized navigation structure.
+          </Text>
+          <Text
+            style={[
+              styles.sectionText,
+              { fontWeight: "bold", fontStyle: "italic" },
+            ]}
+          >
+            npm install @react-navigation/drawer
+          </Text>
+          <Text
+            style={[
+              styles.sectionText,
+              { fontWeight: "bold", fontStyle: "italic" },
+            ]}
+          >
+            Library: npx expo install react-native-gesture-handler
+            react-native-reanimated
+          </Text>
+          <Text
+            style={[
+              styles.sectionText,
+              { fontWeight: "bold", fontStyle: "italic" },
+            ]}
+          >
+            Addition in <Text>babel.config.js</Text>:
+          </Text>
+          <Text
+            style={[
+              styles.sectionText,
+              { fontWeight: "bold", fontStyle: "italic" },
+            ]}
+          >
+            plugins: [ 'react-native-reanimated/plugin', ]
+          </Text>
+
+          <Text
+            style={[
+              styles.sectionText,
+              { fontWeight: "bold", fontStyle: "italic" },
+            ]}
+          >
+            Add - "start": "expo start -c" to the "script" in package.json
+          </Text>
+          <Text style={[styles.sectionText, { fontStyle: "italic" }]}>
+            We can toggle Drawere programatically.
           </Text>
         </View>
 

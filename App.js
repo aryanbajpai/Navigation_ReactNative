@@ -1,12 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
-import {
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-  SafeAreaView,
-  Pressable,
-} from "react-native";
+import { Text, Pressable } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import StackNav from "./screens/StackNav";
 import DrawerNav from "./screens/DrawerNav";
@@ -67,7 +60,7 @@ export default function App() {
           //   name: "Default Name",
           // }}
 
-              //Can be used when passing Static Data
+          //Can be used when passing Static Data
           // options={({ route }) => ({    //To pass Dynamic Title through NAVIGATION
           //   title: route.params.name
           // })}
